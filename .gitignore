@@ -1,0 +1,22 @@
+# ###
+#
+.DS_Store
+/.idea
+node_modules
+/build
+/dist
+/tmp
+/.svelte-kit
+/package
+.secret
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+/prisma/*.db
+/prisma/migrations
+/static/images
+
+# ###
+
