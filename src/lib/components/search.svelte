@@ -1,3 +1,4 @@
+<!--
 <script lang="ts">
     export let q: string = '';
 </script>
@@ -12,3 +13,4 @@
         </div>
     </form>
 </div>
+-->

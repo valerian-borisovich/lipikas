@@ -31,7 +31,7 @@ indent_size = 2
 # quote_type = single
 
 # ###   HTML CSS VUE
-[*.{html,htm,css,vue}]
+[*.{html,htm,css,vue, svetle}]
 indent_size = 2
 
 # ###   json yml
