@@ -1,23 +1,22 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-// and what to do when importing types
+// See https://kit.svelte.dev/docs/types#app for information about these interfaces and what to do when importing types
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 
 declare global {
-	namespace App {
-		// interface Error {}
-		interface Locals {
-			user: {
-				id: number,
-				name: string
-			}
-		}
-		// interface PageData {}
-		// interface Platform {}
-	}
+  namespace App {
+    // interface Error {}
+    interface Locals {user: { id: number, name: string } }
+    // interface PageData {}
+    // interface Platform {}
+    interface Platform {
+//      env?: {
+//        YOUR_KV_NAMESPACE: KVNamespace;
+//        YOUR_DURABLE_OBJECT_NAMESPACE: DurableObjectNamespace;
+//      }
+    }
+  }
 
-	var db: PrismaClient;
+  let db: PrismaClient
 }
 
-export {};
+export {}

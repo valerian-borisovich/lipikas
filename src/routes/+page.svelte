@@ -1,6 +1,9 @@
 <script lang='ts'>
   import type { PageServerData } from './$types'
+  // import Menu from '$lib/components/menu.svelte'
+  import Footer from '$lib/components/footer.svelte'
   import Navigation from '$lib/components/navigation.svelte'
+  // import Countries from "$lib/components/countries.svelte"
   import Posts from '$lib/components/posts.svelte'
   import Search from '$lib/components/search.svelte'
   import Videos from '$lib/components/videos.svelte'
@@ -15,6 +18,12 @@
 
 <Search />
 
+
+<!--
+<Menu />
+
+// import Countries from "$lib/components/countries.svelte"
+
 <div class='p-6'>
   <form action='/' method='get'>
     <div class='flex gap-3'>
@@ -27,9 +36,12 @@
     </div>
   </form>
 </div>
+-->
 
 <Posts posts={data.posts} />
 
 <Videos videos={data.videos} />
 
 <Navigation href='/?' prevPage={data.prevPage} nextPage={data.nextPage} />
+
+<Footer />

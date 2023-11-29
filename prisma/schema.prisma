@@ -36,3 +36,21 @@ model Tag {
     slug  String @unique
     posts Post[]
 }
+
+model Video {
+    id          Int      @id @default(autoincrement())
+    type        String?
+    title       String
+    author      String
+    url         String
+    embededUrl  String?
+    view_count  Int
+    short_view_count Int?
+    country     String?
+    published   DateTime?
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    thumbnailUrl    String?
+    thumbnailWidth  Int?
+    thumbnailheight Int?
+}

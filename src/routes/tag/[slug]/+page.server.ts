@@ -9,9 +9,7 @@ export const load = (async ({ locals, params, url }) => {
 
     const page = Number(url.searchParams.get('page') ?? '1');
 
-    const tag = await db.tag.findFirst({
-        where: { slug: params.slug }
-    });
+    const tag = await db.tag.findFirst({ where: { slug: params.slug } });
 
     const posts = await db.post.findMany({
         take: 10,

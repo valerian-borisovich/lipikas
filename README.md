@@ -1,6 +1,6 @@
 # Lipikas
 
-[Installation](install.md)
+[Installation](Installation.md)
 
 ---
 

@@ -34,5 +34,5 @@ Sign in with a sample user:
 
 ```
 Username: admin
-Password: password
+Password: admin
 ```
