@@ -14,7 +14,7 @@
     <Alert>{@html form?.message}</Alert>
 {/if}
 
-<form method="post" enctype="multipart/form-data" use:enhance>
+<form method="POST" enctype="multipart/form-data" use:enhance>
     <div class="mb-3">
         <input type="text" name="title" placeholder="Title" class="input input-bordered w-full">
     </div>

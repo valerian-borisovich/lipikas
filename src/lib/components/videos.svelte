@@ -1,14 +1,15 @@
 <script lang='ts'>
+  import { getUrl } from '$lib'
   export let videos: any
   let dialog: HTMLDialogElement
 
   let title = ''
-  let embededUrl = ''
+  let id = ''
   let url = ''
 
   function watch(video: any) {
     title = video.title
-    embededUrl = video.embededUrl
+    id = video.id
     url = video.url
 
     dialog.showModal()
@@ -57,17 +58,13 @@
 <dialog bind:this={dialog} class='modal shadow'>
   <div class='modal-box max-w-5xl md:w-8/12'>
     <form method='dialog'>
-      <button
-        class='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'
-      >✕
-      </button
-      >
+      <button class='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>✕</button>
     </form>
 
     <h3 class='font-bold text-lg mb-4'>{title}</h3>
 
     <iframe
-      src={embededUrl}
+      src={getUrl(id, true)}
       class='w-full aspect-video mb-4'
       title='YouTube video player'
       frameborder='0'

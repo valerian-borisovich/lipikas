@@ -11,7 +11,7 @@ export const load = (async ({ locals, params, url }) => {
 
     const tag = await db.tag.findFirst({ where: { slug: params.slug } });
 
-    const posts = await db.post.findMany({
+    const videos = await db.video.findMany({
         take: 10,
         skip: page == 1 ? 0 : (page - 1) * 10,
         orderBy: [{ id: 'desc'}],
@@ -25,7 +25,7 @@ export const load = (async ({ locals, params, url }) => {
     });
 
     const prevPage = page == 1 ? 0 : page - 1;
-    const nextPage = posts.length < 10 ? 0 : page + 1;
+    const nextPage = videos.length < 10 ? 0 : page + 1;
 
-    return { tag, posts, prevPage, nextPage };
+    return { tag, videos, prevPage, nextPage };
 }) satisfies PageServerLoad;

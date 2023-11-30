@@ -7,7 +7,7 @@ import { getTagIds } from "$lib/server/services";
 import type { Tag } from "@prisma/client";
 
 export const load = (async ({ locals, params }) => {
-    const post = await db.post.findFirst({
+    const video = await db.video.findFirst({
         where: {
             AND: [
                 { author: { id: locals.user.id } },
@@ -17,14 +17,14 @@ export const load = (async ({ locals, params }) => {
         include: { tags: true }
     });
 
-    if (!post) {
+    if (!video) {
         throw redirect(302, '/');
     }
 
     return {
-        post: {
-            ...post,
-            tagcsv: post.tags.map((tag: Tag, i: number) => i == 0 ? tag.name : ' ' + tag.name)
+        video: {
+            ...video,
+            tagcsv: video.tags.map((tag: Tag, i: number) => i == 0 ? tag.name : ' ' + tag.name)
         }
     };
 }) satisfies PageServerLoad;
@@ -45,14 +45,14 @@ export const actions = {
             });
         }
 
-        const post = await db.post.findUnique({
+        const video = await db.video.findUnique({
             where: {
                 id: Number(params.id)
             }
         });
 
 
-        let filename = post?.photo;
+        let filename = video?.photo;
 
         if (file.size > 0) {
             const date = new Date().toISOString()
@@ -69,7 +69,7 @@ export const actions = {
 
         const ids = await getTagIds(tagcsv);
 
-        await db.post.update({
+        await db.video.update({
             where: { id: Number(params.id) },
             data: {
                 title: title.trim(),
@@ -82,6 +82,6 @@ export const actions = {
             }
         });
 
-        throw redirect(302, `/${post?.id}/${post?.slug}`);
+        throw redirect(302, `/${video?.id}/${video?.slug}`);
     }
 } satisfies Actions;

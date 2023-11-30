@@ -1,8 +1,8 @@
 <script lang="ts">
     import type { PageServerData } from "./$types";
     import Navigation from "$lib/components/navigation.svelte";
-    import Posts from "$lib/components/posts.svelte";
-    
+    import Videos from "$lib/components/videos.svelte";
+
     export let data: PageServerData;
 </script>
 
@@ -14,6 +14,6 @@
     <div class="title font-bold uppercase">{data.tag?.name}</div>
 </div>
 
-<Posts posts={data.posts} />
+<Videos videos={data.videos} />
 
 <Navigation href="/tag/{data.tag?.slug}?" prevPage={data.prevPage} nextPage={data.nextPage} />

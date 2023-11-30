@@ -133,7 +133,7 @@
             <h1 class="font-bold uppercase"><a href="/">Lipikas</a></h1>
 
             <div class="inline-flex items-center gap-3">
-                <form method="post" class="form-control" use:enhance={updateTheme}>
+                <form method="POST" class="form-control" use:enhance={updateTheme}>
                     <div class="dropdown dropdown-end">
                         <label tabindex="0" class="btn btn-sm btn-ghost rounded-btn"><i class="bi bi-sun"></i></label>
                         <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-200 rounded-box w-52 mt-4">

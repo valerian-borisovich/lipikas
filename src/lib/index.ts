@@ -1,4 +1,10 @@
 // place files you want to import through the `$lib` alias in this folder.
+export function getUrl(id: string, embeded=false) {
+  let url = `https://www.youtube.com/watch?v=${id}`
+  if (embeded) url = `https://www.youtube.com/embed/${id}`
+  return url
+}
+
 export function getVideos(videos: any) {
   return videos.map((video: any) => {
     return {

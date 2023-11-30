@@ -8,7 +8,7 @@ export const load = (async ({ locals, params }) => {
         throw redirect(302, '/login');
     }
 
-    const post = await db.post.findFirst({
+    const video = await db.video.findFirst({
         where: {
             AND: [
                 { author: { id: locals.user.id } },
@@ -18,14 +18,14 @@ export const load = (async ({ locals, params }) => {
         include: { tags: true }
     });
 
-    if (!post) {
+    if (!video) {
         throw redirect(302, '/');
     }
 
     return {
-        post: {
-            ...post,
-            contentToHtml: marked.parse((post?.content as string).replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/,""))
+        video: {
+            ...video,
+            contentToHtml: marked.parse((video?.content as string).replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/,""))
         }
     };
 }) satisfies PageServerLoad;

@@ -26,6 +26,7 @@ async function addUser() {
   return user
 }
 
+/*
 async function addPosts(user: User) {
   const tags = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
@@ -56,16 +57,15 @@ async function addPosts(user: User) {
         },
       },
     })
-
     posts.push(post)
   }
-
   return posts
 }
+*/
 
 async function main() {
   const user = await addUser()
-  await addPosts(user)
+  //await addPosts(user)
 }
 
 main()

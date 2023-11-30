@@ -22,7 +22,7 @@ export const actions = {
         }
 
         let filename = '';
-        
+
         if (file.size > 0) {
             const date = new Date().toISOString()
                 .replaceAll('-', '')
@@ -36,8 +36,8 @@ export const actions = {
         }
 
         const ids = await getTagIds(tagcsv);
-        
-        const post = await db.post.create({
+
+        const video = await db.video.create({
             data: {
                 title: title.trim(),
                 photo: filename,
@@ -50,6 +50,6 @@ export const actions = {
             }
         });
 
-        throw redirect(302, `/${post.id}/${post.slug}`);
+        throw redirect(302, `/${video.id}/${video.slug}`);
     }
 } satisfies Actions;

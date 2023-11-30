@@ -16,7 +16,7 @@
 {/if}
 
 <div class='w-full md:w-2/3 md:mx-auto'>
-  <form method='post' use:enhance>
+  <form method='POST' use:enhance>
     <div class='mb-3'>
       <input type='password' name='password' placeholder='Password' class='input input-bordered w-full'>
     </div>
