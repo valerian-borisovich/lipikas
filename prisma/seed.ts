@@ -1,4 +1,4 @@
-import { Post, PrismaClient, User } from '@prisma/client'
+import { Video, PrismaClient, User } from '@prisma/client'
 import { faker } from '@faker-js/faker'
 import slugify from 'slugify'
 import bcrypt from 'bcrypt'

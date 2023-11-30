@@ -6,7 +6,7 @@
     "start": "node build/index.js",
     "clear": "",
     "resetup": "npm run clear && npm run setup && npm run dev",
-    "setup": "npx prisma migrate dev --name init",
+    "setup": "npm run install && npx prisma migrate dev --name init",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
