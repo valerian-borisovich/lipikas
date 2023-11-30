@@ -45,7 +45,7 @@ export const load2 = (async ({ locals, url }) => {
 */
 
 export const load = (async ({ locals, url }) => {
-    let local_search = url.searchParams.get('local') ?? '1'
+    let local_search = url.searchParams.get('local') ?? '0'
     let gl = url.searchParams.get('gl') ?? 'RU';
     let page = Number(url.searchParams.get('page') ?? '1');
     let prevPage = page == 1 ? 0 : page - 1;

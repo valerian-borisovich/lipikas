@@ -1,5 +1,6 @@
 <script lang='ts'>
   import { getUrl } from '$lib'
+
   export let videos: any
   let dialog: HTMLDialogElement
 
@@ -25,32 +26,32 @@
     on:click={() => watch(video)}
   >
     <div class='flex-none mb-2 md:mb-0'>
+      {#if video.author.name}
+        <div class='text-sm'>{video.author.name}</div>
+      {/if}
+
       <img
         src={video.thumbnail.url}
         alt='[]'
         class='w-full md:w-64 md:h-32 object-cover rounded'
       />
-    </div>
-    <div>
-      <h3 class='font-bold'>{video.title}</h3>
+      <div>
+        <h3 class='font-bold'>{video.title}</h3>
 
-      {#if video.author.name}
-        <div class='text-sm'>{video.author.name}</div>
-      {/if}
+        {#if video.short_view_count || video.published}
+          <div class='inline-flex gap-2 text-xs'>
+            {#if video.short_view_count}
+              <div>{video.short_view_count}</div>
+            {/if}
 
-      {#if video.short_view_count || video.published}
-        <div class='inline-flex gap-2 text-xs'>
-          {#if video.short_view_count}
-            <div>{video.short_view_count}</div>
-          {/if}
+            <div>&bull;</div>
 
-          <div>&bull;</div>
-
-          {#if video.published}
-            <div>{video.published}</div>
-          {/if}
-        </div>
-      {/if}
+            {#if video.published}
+              <div>{video.published}</div>
+            {/if}
+          </div>
+        {/if}
+      </div>
     </div>
   </div>
 {/each}
