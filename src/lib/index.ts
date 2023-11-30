@@ -10,8 +10,8 @@ export function getVideos(videos: any) {
     return {
       type: video.type,
       id: video.id,
-      url: `https://www.youtube.com/watch?v=${video.id}`,
-      embededUrl: `https://www.youtube.com/embed/${video.id}`,
+      url: `${getUrl(video.id)}`,
+      embededUrl: `${getUrl(video.id,true)}`,
       title: video.title.text,
       thumbnail: {
         url: video.best_thumbnail ? video.best_thumbnail.url : 'https://placehold.co/600x400?text=Lipikas',

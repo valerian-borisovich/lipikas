@@ -1,9 +1,10 @@
 <script lang='ts'>
+  // https://github.com/SuspiciousLookingOwl/youtubei
   import { getUrl } from '$lib'
 
   export let videos: any
-  let dialog: HTMLDialogElement
 
+  let dialog: HTMLDialogElement
   let title = ''
   let id = ''
   let url = ''
@@ -12,7 +13,6 @@
     title = video.title
     id = video.id
     url = video.url
-
     dialog.showModal()
   }
 </script>

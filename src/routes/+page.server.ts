@@ -45,12 +45,12 @@ export const load2 = (async ({ locals, url }) => {
 */
 
 export const load = (async ({ locals, url }) => {
+    let videos = {};
     let local_search = url.searchParams.get('local') ?? '0'
     let gl = url.searchParams.get('gl') ?? 'RU';
     let page = Number(url.searchParams.get('page') ?? '1');
     let prevPage = page == 1 ? 0 : page - 1;
     let nextPage = page + 1;
-    let videos = {};
 
     if (local_search === '1') {
         if (!locals.user) {
@@ -72,7 +72,9 @@ export const load = (async ({ locals, url }) => {
             generate_session_locally: true,
             location: gl,
         });
-        const feed = await youtube.getTrending();
+
+        // let feed = url.searchParams.get('feed') ?? await youtube.getTrending()
+        let feed =  await youtube.getTrending()
         videos = getVideos(feed.videos);
     }
     return { videos, prevPage, nextPage, gl, countries };
